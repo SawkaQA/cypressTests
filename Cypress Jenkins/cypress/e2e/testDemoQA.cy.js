@@ -13,7 +13,7 @@ describe('test locators', () => {
         cy.get('#userEmail').type('sasha@gmail.com').should('have.value', 'sasha@gmail.com') 
         cy.get('#currentAddress').type('Sasha the best QA')
         cy.get('#permanentAddress').type('Oops, sorry')
-        // cy.get('#submit').contains('Submit').click()
+        cy.get('#submit').contains('Submit').click() 
     })
 })
 
