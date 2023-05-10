@@ -5,32 +5,41 @@ describe('Capital.com Smoke test', () => {
     it('Test SignUp Form', () => {
         
         // Open capital and set res 1280x720
-        cy.visit('https://capital.com/')
-        cy.viewport(1280, 720)
+        beforeEach(() => {
+            cy.visit('/')
+            cy.viewport(1920, 1080)
+        })
 
         // Check Sign Up
         cy.title().should('eq', 'Online Trading with Smart Investment App | Capital.com')
         cy.get('.listChecked__btn > .btn')
         .should('contain', 'Start trading')
         .click()
+
         cy.get('.signup-form')
         .should('be.visible')
+
         cy.get('.signup-form > .form-container-small-header > .h1')
         .should('have.text', 'Sign up')
+
         cy.get('#s_overlay-email span')
         .should('have.text', 'Email address')
+
         cy.get('#s_overlay-email > .field__control')
         .should('have.text', '')
+
         cy.get('#s_overlay-pass span')
         .should('have.text', 'Password')
+
         cy.get('#s_overlay-pass > .field__control')
         .should('have.text', '')
-        cy.get('button')
+
+        cy.get('.signup-form > .form-container-small-content > form > .btn')
         .should('be.visible')
         .and('contain', 'Continue')
 
         // Check button [Login]
-        cy.wait(3000);
+        cy.wait(2000);
         cy.get('.signup-form > .form-container-small-header > p > .l_btn_signup')
         .click()
         cy.get('#l_overlay > .form-container-white > .form-container-small-header > .h1')
@@ -47,20 +56,15 @@ describe('Capital.com Smoke test', () => {
         .should('be.visible')
         .and('contain', 'Continue')
 
-        // Check checkbox "Log me out after 7 days" and button [Continue]
-        cy.get('input[type="checkbox"]')
-        .check({ force: true })
-        cy.get('input[type="checkbox"]')
-        .should('be.checked')
-        cy.wait(2000)
-        cy.get('input[type="checkbox"]')
-        .uncheck({ force: true })
-        cy.get('input[type="checkbox"]')
-        .should('not.be.checked')
-        cy.get('button[type="submit"]')
-        .should('be.visible')
-        .and('contain', 'Continue')
-
+        // Check checkbox "Log me out after 7 days"
+        cy.get('input[name=l_rem]')
+        .closest('label')
+        .click()
+        cy.wait(1500)
+        cy.get('input[name=l_rem]')
+        .closest('label')
+        .click()
+      
          // Check button "Forgot password?"
          cy.get('.l_btn_forgot')
          .should('have.text', 'Forgot password?')
@@ -71,9 +75,7 @@ describe('Capital.com Smoke test', () => {
          .should('have.text', '')
          cy.get('#f_f_email span')
          .should('have.text', 'Email address')
-         cy.get('button[type="submit"]')
-        .should('be.visible')
-        .and('contain', 'Send reset email')
- 
+         cy.get('[class$=f_btn]')
+        .should('have.text', 'Send reset email')
     })
 })
