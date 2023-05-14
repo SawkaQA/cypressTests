@@ -17,48 +17,48 @@ describe('test locators', () => {
     })
 })
 
-// describe('Test Suit: DemoQA Menu-titles', () => {
-//     const expectedMenuItemsNames = [
-//         'Elements',
-//         'Forms',
-//         'Alerts, Frame & Windows',
-//         'Widgets', 'Interactions',
-//         'Book Store Application'
-//     ];
+describe('Test Suit: DemoQA Menu-titles', () => {
+    const expectedMenuItemsNames = [
+        'Elements',
+        'Forms',
+        'Alerts, Frame & Windows',
+        'Widgets', 'Interactions',
+        'Book Store Application'
+    ];
 
-//     it('Verification menu items names - #1', () => {
-//         cy.visit('https://demoqa.com/');
-//         cy.get('.card')
-//             .should('have.length', expectedMenuItemsNames.length)
+    it('Verification menu items names - #1', () => {
+        cy.visit('https://demoqa.com/');
+        cy.get('.card')
+            .should('have.length', expectedMenuItemsNames.length)
 
-//             .each(($el, idx) => {
-//                 expect($el.text()).to.be.equal(expectedMenuItemsNames[idx])
-//             })
-//     })
+            .each(($el, idx) => {
+                expect($el.text()).to.be.equal(expectedMenuItemsNames[idx])
+            })
+    })
 
-//     it('Verification menu items names - #2', () => {
-//         cy.visit('https://demoqa.com/');
-//         cy.get('.card')
-//             .should('have.length', expectedMenuItemsNames.length)
+    it('Verification menu items names - #2', () => {
+        cy.visit('https://demoqa.com/');
+        cy.get('.card')
+            .should('have.length', expectedMenuItemsNames.length)
 
-//             .then(($els) => {
-//                 // let actual = 
-//                 return Cypress.$.makeArray($els).map($el => $el.innerText)
-//                 // expect(actual).to.be.deep.equal(expectedMenuItemsNames) // Chai
-//             })
-//             .should('deep.equal', expectedMenuItemsNames)
-//     })
+            .then(($els) => {
+                // let actual = 
+                return Cypress.$.makeArray($els).map($el => $el.innerText)
+                // expect(actual).to.be.deep.equal(expectedMenuItemsNames) // Chai
+            })
+            .should('deep.equal', expectedMenuItemsNames)
+    })
 
-//     it('Verification menu items names - #3', () => {
-//         cy.visit('https://demoqa.com/');
-//         cy.get('.card')
-//             .should('have.length', expectedMenuItemsNames.length)
+    it('Verification menu items names - #3', () => {
+        cy.visit('https://demoqa.com/');
+        cy.get('.card')
+            .should('have.length', expectedMenuItemsNames.length)
 
-//             .then(($els) => {
-//                 return Cypress._.map($els, 'InnerText') // Lodash
-//             })
-//             .should('deep.equal', expectedMenuItemsNames) // Cypress
-//     })
-// });
+            .then(($els) => {
+                return Cypress._.map($els, 'InnerText') // Lodash
+            })
+            .should('deep.equal', expectedMenuItemsNames) // Cypress
+    })
+});
 
 

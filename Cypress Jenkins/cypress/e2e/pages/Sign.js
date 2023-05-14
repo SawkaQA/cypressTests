@@ -14,13 +14,13 @@
 //     .dblclick()
 // }
 
-class Login {
-    elements ={
-        btnTradeNow : () =>  cy.get('#wphWrap > .js_signup'),
-        getEmail : () => cy.get('#s_overlay-email > .field__control'),
-        getPassword : () => cy.get('#s_overlay-pass > .field__control'),
-        clickBtnContinue : () => cy.get('.signup-form > .form-container-small-content > form > .btn')
-    }
-}
+// class Login {
+//     elements ={
+//         btnTradeNow : () =>  cy.get('#wphWrap > .js_signup'),
+//         getEmail : () => cy.get('#s_overlay-email > .field__control'),
+//         getPassword : () => cy.get('#s_overlay-pass > .field__control'),
+//         clickBtnContinue : () => cy.get('.signup-form > .form-container-small-content > form > .btn')
+//     }
+// }
 
-export default new Login();
+// export default new Login();
