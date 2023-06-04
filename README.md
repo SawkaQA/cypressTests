@@ -1,2 +1,0 @@
-# cypressTests
-Automation on JavaScript
